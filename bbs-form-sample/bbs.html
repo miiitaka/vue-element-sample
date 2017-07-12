@@ -6,20 +6,20 @@
 </head>
 <body>
 <div id="app">
-  <el-form :label-position="labelPosition" :label-width="labelWidth" :model="formData" ref="formData">
-    <el-form-item label="お名前" prop="name" :rules="[{ required: true, message: 'name is required'}]">
+  <el-form :label-position="labelPosition" :label-width="labelWidth" :model="formData" ref="formData" :rules="rules">
+    <el-form-item label="お名前" prop="name">
       <el-input v-model="formData.name"></el-input>
     </el-form-item>
     <el-form-item label="e-mail" prop="email">
       <el-input v-model="formData.email"></el-input>
     </el-form-item>
-    <el-form-item label="タイトル" prop="title" :rules="[{ required: true, message: 'title is required'}]">
+    <el-form-item label="タイトル" prop="title">
       <el-input v-model="formData.title"></el-input>
     </el-form-item>
-    <el-form-item label="メッセージ" prop="message" :rules="[{ required: true, message: 'message is required'}]">
+    <el-form-item label="メッセージ" prop="message">
       <el-input type="textarea" v-model="formData.message"></el-input>
     </el-form-item>
-    <el-form-item label="パスワード" prop="password" :rules="[{ required: true, password: 'title is required'}]">
+    <el-form-item label="パスワード" prop="password">
       <el-input type="password" v-model="formData.password"></el-input>
     </el-form-item>
     <el-form-item>
@@ -30,44 +30,7 @@
 </div>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<script>
-  var Main = {
-    data: function() {
-      return {
-        labelPosition : 'right',
-        labelWidth : '100px',
-        formData : {
-          name     : '',
-          email    : '',
-          title    : '',
-          message  : '',
-          password : ''
-        }
-      };
-    },
-    methods: {
-      submitForm: function(formName) {
-        var scope = this;
-        this.$refs[formName].validate(function(valid) {
-          if (valid) {
-            alert('submit!');
-            scope.pushForm(formName);
-          } else {
-            alert('error submit!!');
-            return false;
-          }
-        });
-      },
-      resetForm: function(formName) {
-        this.$refs[formName].resetFields();
-      },
-      pushForm: function(formName) {
-        console.log(formName);
-      }
-    }
-  };
-  var vueForm = Vue.extend(Main);
-  new vueForm().$mount('#app');
-</script>
+<script src="bss.js"></script>
+
 </body>
 </html>
