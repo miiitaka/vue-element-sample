@@ -6,20 +6,20 @@
 </head>
 <body>
 <div id="app">
-  <el-form :label-position="labelPosition" :label-width="labelWidth" :model="formData" ref="formData">
-    <el-form-item label="お名前" prop="name" :rules="[{ required: true, message: 'name is required'}]">
+  <el-form :label-position="labelPosition" :label-width="labelWidth" :model="formData" ref="formData" :rules="rules">
+    <el-form-item label="お名前" prop="name">
       <el-input v-model="formData.name"></el-input>
     </el-form-item>
     <el-form-item label="e-mail" prop="email">
       <el-input v-model="formData.email"></el-input>
     </el-form-item>
-    <el-form-item label="タイトル" prop="title" :rules="[{ required: true, message: 'title is required'}]">
+    <el-form-item label="タイトル" prop="title">
       <el-input v-model="formData.title"></el-input>
     </el-form-item>
-    <el-form-item label="メッセージ" prop="message" :rules="[{ required: true, message: 'message is required'}]">
+    <el-form-item label="メッセージ" prop="message">
       <el-input type="textarea" v-model="formData.message"></el-input>
     </el-form-item>
-    <el-form-item label="パスワード" prop="password" :rules="[{ required: true, password: 'title is required'}]">
+    <el-form-item label="パスワード" prop="password">
       <el-input type="password" v-model="formData.password"></el-input>
     </el-form-item>
     <el-form-item>
@@ -42,6 +42,20 @@
           title    : '',
           message  : '',
           password : ''
+        },
+        rules: {
+          name: [
+            {required: true, message: 'name is required'}
+          ],
+          title: [
+            {required: true, message: 'title is required'}
+          ],
+          message: [
+            {required: true, message: 'message is required'}
+          ],
+          password: [
+            {required: true, password: 'title is required'}
+          ]
         }
       };
     },
