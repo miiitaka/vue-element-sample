@@ -8,10 +8,10 @@
 <div id="app">
   <el-form :label-position="labelPosition" :label-width="labelWidth" :model="formData" ref="formData" :rules="rules">
     <el-form-item label="お名前" prop="name">
-      <el-input v-model="formData.name"></el-input>
+      <el-input v-model="formData.name" icon="edit"></el-input>
     </el-form-item>
     <el-form-item label="e-mail" prop="email">
-      <el-input v-model="formData.email"></el-input>
+      <el-input v-model="formData.email" icon="message"></el-input>
     </el-form-item>
     <el-form-item label="タイトル" prop="title">
       <el-input v-model="formData.title"></el-input>
@@ -28,6 +28,15 @@
     </el-form-item>
   </el-form>
 </div>
+
+<div id="message-box">
+  <ol>
+    <li v-for="item in arrayItems">
+      {{ item.name }}
+    </li>
+  </ol>
+</div>
+
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 <script src="bss.js"></script>

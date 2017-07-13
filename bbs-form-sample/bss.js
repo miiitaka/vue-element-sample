@@ -1,5 +1,8 @@
 'use strict';
 
+var storageName = 'dataBBS';
+var arrayList   = [];
+
 var Main = {
   data: function() {
     return {
@@ -33,8 +36,7 @@ var Main = {
       var scope = this;
       this.$refs[formName].validate(function(valid) {
         if (valid) {
-          alert('submit!');
-          scope.pushForm(formName);
+          scope.pushForm();
         } else {
           alert('error submit!!');
           return false;
@@ -44,10 +46,44 @@ var Main = {
     resetForm: function(formName) {
       this.$refs[formName].resetFields();
     },
-    pushForm: function(formName) {
-      console.log(formName);
+    pushForm: function() {
+      arrayList.push({
+        'name'     : this.formData.name,
+        'email'    : this.formData.email,
+        'title'    : this.formData.title,
+        'message'  : this.formData.message,
+        'password' : this.formData.password
+      });
+      localStorage.setItem(storageName, JSON.stringify(arrayList));
     }
   }
 };
 var vueForm = Vue.extend(Main);
 new vueForm().$mount('#app');
+
+arrayList = localStorage.getItem(storageName);
+arrayList = JSON.parse(arrayList);
+if (arrayList === null) arrayList = [];
+
+var messageList = new Vue({
+  el : '#message-box',
+  data: {
+    arrayItems : arrayList
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
