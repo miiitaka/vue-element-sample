@@ -1,7 +1,5 @@
-/**
- * Created by tasaki_takahiro on 2017/07/12.
- */
 'use strict';
+
 var Main = {
   data: function() {
     return {
