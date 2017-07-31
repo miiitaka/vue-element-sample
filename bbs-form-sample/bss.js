@@ -71,19 +71,3 @@ var messageList = new Vue({
     arrayItems : arrayList
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
